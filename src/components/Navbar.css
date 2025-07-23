@@ -12,7 +12,7 @@
 
 .nav-links {
   display: flex;
-  gap: 15px;
+  gap: 60px; /* Aumentado el espacio entre las pestañas para mayor concordancia */
   list-style: none;
 }
 
@@ -20,9 +20,31 @@
   color: white;
   text-decoration: none;
   font-weight: bold;
-  padding: 5px 10px;
+  padding: 8px 15px; /* Padding general para todos los enlaces */
   border-radius: 5px;
   transition: background 0.3s;
+  display: flex;
+  align-items: center; /* Alineación por defecto para icono al lado del texto */
+  white-space: nowrap; /* Evita que el texto se envuelva por defecto */
+}
+
+.nav-links a svg {
+  /* Estilo por defecto para iconos (para enlaces horizontales como Inicio) */
+  margin-right: 8px;
+}
+
+/* Estilos para enlaces con texto en varias líneas (icono arriba, texto abajo) */
+.nav-links a.nav-link-vertical {
+  flex-direction: column; /* Icono arriba, texto abajo */
+  text-align: center; /* Centra el texto */
+  white-space: normal; /* Permite que el texto se envuelva */
+  max-width: 120px; /* Limita el ancho para forzar el salto de línea */
+  padding: 8px 5px; /* Ajusta el padding horizontal para el diseño vertical */
+}
+
+.nav-links a.nav-link-vertical svg {
+  margin-right: 0; /* Elimina el margen derecho */
+  margin-bottom: 5px; /* Agrega margen inferior al icono */
 }
 
 .nav-links a:hover,
@@ -49,83 +71,78 @@ form button:hover {
   background-color: #b71c1c;
 }
 
-form input {
-  padding: 6px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  width: 250px;
-}
-
-form button {
-  padding: 7px 14px;
-  background-color: #1976d2;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #0d47a1;
-}
-
-ul li {
-  margin-bottom: 10px;
-}
-
-.nav-login-section {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.nav-usuario {
-  font-weight: 600;
-}
-
-.btn-login, .btn-logout {
-  background-color: #444;
-  border: none;
-  padding: 0.5rem 1rem;
-  color: white;
-  cursor: pointer;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.btn-login:hover, .btn-logout:hover {
-  background-color: #666;
-}
-
-/* Modal login */
+/* Estilos para el modal de login */
 .login-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 1200;
 }
 
 .login-modal-content {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  width: 400px;
   position: relative;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
 }
 
 .close-btn {
   position: absolute;
-  top: 0.4rem;
-  right: 0.6rem;
-  font-size: 2rem;
-  border: none;
+  top: 10px;
+  right: 15px;
   background: none;
+  border: none;
+  font-size: 24px;
   cursor: pointer;
-  color: #333;
+  color: #666;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+.nav-login-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-usuario {
+  font-weight: bold;
+}
+
+.btn-login,
+.btn-logout {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-login {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-login:hover {
+  background-color: #45a049;
+}
+
+.btn-logout {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-logout:hover {
+  background-color: #d32f2f;
 }
